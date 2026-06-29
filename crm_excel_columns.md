@@ -1,0 +1,2913 @@
+# Glossario colonne CRM
+
+Questo documento elenca le colonne e le definizioni variabili trovate nel workbook 20230428_SILVERSEA_Tracciato_tabelle_v11_WIP2.xlsx, raggruppate per sheet come appaiono in excel.
+
+## Feature per Sheet
+
+| Excel Sheet | Descrizione | Numero colonne | Colonne |
+|---|---|---|---|
+| Tabelle DB | riepilogo metadati delle tabelle (nome, volumetria, priorità, schema, stato di completezza). | 6 | Done, Nome tabella, Numero colonne, Numero righe, Prio order, Schema |
+| AGNCSNNA | tabella relazionale generica tra entità (es. agency, contact, ecc.) con tipo di relazione, ruoli e audit log. | 18 | ActionType, Data type, Entity1Cod, Entity1Desc, Entity1Type, Entity2Cod, Entity2Desc, Entity2Type, Notes, Questions, RelationType, Role, UTCDate, UserLogin, UserName, _id, _inputFile, _loadingTs |
+| REVENUE | dataset completo di ricavi booking/cruise con dettaglio per componente. | 136 | ASPax, AccrualFcc, AgencyCod, AgencyContact, AirCharges, AirCharterSubsidy, AirCommission, AirCost, AirDistress, AirFlag, AirPromoCredit, AnticipatedPaymentBonus, Area, BkgPaxCod, BkgPaxCodCompleted, BkgTypeDetail, BookingCode, BookingConfirmationDate, BookingFirstInsertDate, BookingStatus, CabinCategoryCod, CabinCod, CancellationDate, CategoryDescription, Channel, CharterAirFlag, Combo, ComboDiscount, CommStd, CommissionManualAdjustment, ConsortiumCod, CruiseDistress, CruiseFare, Currency, CustRelDisc, Data type, Days, DebarkPort, EarlyBookingBonus, EarlyBookingDiscount, EarnedBerthsTcDiscount, EmbarkPort, FareClass, FareCod, FccValue, FinalCrs, FlagCabinUpgrade, GatewayCod, GatewayCost, GrossCruiseRev, GroupCod, GrpComm, HotelCharges, HotelCommission, HotelCost, HotelFlag, HotelSubsidy, HtlDistress, IncentiveGroupDiscount, InsuranceCharge, InternationalAirFlag, LandCharge, LandCommission, LandCost, LandFlag, LandSubsidy, LndDistress, MSCAirCredit, Market, Miscellaneus, NetCruiseRev, NetFcc, NetRevenueAir, NetRevenueHotel, NetRevenueInsurance, NetRevenueLand, NetRevenueShorex, NetRevenueTransfer, NetTACruiseRevenue, NotcommissionalFee, Notes, NumberOfBooking, NumberOfPax, NumberOfRepetearFifthOrMoreTime, NumberOfRepetearFourthTime, NumberOfRepetearSecondTime, NumberOfRepetearThirdTime, NumberOfVSPax, Onboard, OtherDiscount, OverrideCommission, PaxDays, Penalty, PortCharges, PostCruiseHotelFlag, PreCruiseHotelFlag, PriceCategoryCod, PriceCategoryDescription, Questions, ResAgent, Role, Saildate, SegmentMaster, Ship, ShipBoardCredit, ShorexCharge, ShorexCommission, ShorexCost, ShorexFlag, ShorexSubsidy, ShxDistress, TTLTacticalDiscount, TfrDistress, ToUsdActual, TotalAmountDue, TotalBookingAmount, TotalBookingCommission, TotalCharge, TotalCommission, TotalCruiseDiscount, TotalPayment, TourConductorDiscount, TransferCharges, TransferCommission, TransferCost, TransferFlag, TransferSubsidy, UsedFccValue, UsedNetFcc, VSDiscount, VatCost, Voyage, VoyageNumberChild, VoyageSegmentCod, VsDays, WriteOff |
+| HOUSEHOLD | informazioni aggregate a livello nucleo familiare. | 51 | Data type, Email, FamilyName, HHAddress, HHAddressValidity, HHAgencyCodLast, HHBkgChannelLast, HHBkgFareClassLast, HHCity, HHCnsCodLast, HHCountry, HHCountryCod, HHCounty, HHDateFirstBkg, HHDateLastBkg, HHIndividualIdAgentLast, HHMarketRegion, HHOKtoMail, HHPostalCode, HHRFSegment, HHSailDateLast, HHSailDateNext, HHState, HHVoyFirstYear, HHVoyLastYear, HHZip4, HH_VsDays, HeadIndividualId, HouseholdId, Individuals, LangMailingName, LangSalutation, Language, LastUpdate, MailName, MailableFamilyName, Market, Notes, Phone, Questions, Role, ValidRecord, ValidityDateFrom, ValidityDateTo, _inputFile, _lastModifiedTs, _loadingTs, addressId, changedname, owner, status |
+| GOOGLESOURCEWEBREQUESTS | tracciamento web da sorgente Google con parametri campaign/visit e identificativi di richiesta. | 15 | Data type, Notes, Questions, Role, campaign, campaign_ad_content, campaign_keywords, campaign_source, channel, market, super_id, uwrid, visit_id, webrequest_timestamp, wrid |
+| HOUSEHOLDSEND | log invii campagne marketing a livello household. | 11 | CampId, CampName, Channel, Data type, HouseholdId, MsgId, Notes, PkId, Questions, Role, SendTime |
+| CAMPAIGNPARENTNAME | mapping tra campagne e campagne padre. | 7 | BaseCampName, CampId, Data type, Notes, ParentCampName, Questions, Role |
+| AGENTCLICK | eventi click email/marketing tracciati per agenti. | 15 | CampId, CampName, ClickId, ClickTime, Data type, Email, IndividualIdAgent, IpAddress, LinkId, LinkName, MsgId, Notes, PkId, Questions, Role |
+| INDIVIDUALCLICK | eventi click email/marketing tracciati per clienti individuali. | 15 | CampId, CampName, ClickId, ClickTime, Data type, Email, IndividualId, IpAddress, LinkId, LinkName, MsgId, Notes, PkId, Questions, Role |
+| AGENTBOUNCE | eventi bounce email per agenti con classificazione errore. | 14 | BounceTime, CampId, CampName, CategoryId, CategoryName, Data type, Email, EmailSp1StatusId, IndividualIdAgent, MsgId, Notes, PkId, Questions, Role |
+| INDIVIDUALBOUNCE | eventi bounce email per clienti. | 14 | BounceTime, CampId, CampName, CategoryId, CategoryName, Data type, Email, EmailSp1StatusId, IndividualId, MsgId, Notes, PkId, Questions, Role |
+| AGENTOPEN | eventi apertura email marketing da parte di agenti. | 15 | CampId, CampName, Data type, Email, IndividualIdAgent, IpAddress, LinkId, LinkName, MsgId, Notes, OpenId, OpenTime, PkId, Questions, Role |
+| INDIVIDUALOPEN | eventi apertura email marketing da parte di agenti. | 15 | CampId, CampName, Data type, Email, IndividualId, IpAddress, LinkId, LinkName, MsgId, Notes, OpenId, OpenTime, PkId, Questions, Role |
+| AGENTSEND | log invii email marketing agli agenti. | 12 | CampId, CampName, Channel, Data type, Email, IndividualIdAgent, MsgId, Notes, PkId, Questions, Role, SendTime |
+| INDIVIDUALSEND | log invii email marketing ai clienti. | 12 | CampId, CampName, Channel, Data type, Email, IndividualId, MsgId, Notes, PkId, Questions, Role, SendTime |
+| AGENTUNSUBS | eventi unsubscribe agenti dalle comunicazioni. | 14 | CampId, CampName, Data type, Email, IndividualIdAgent, MsgId, Notes, PkId, Questions, Role, Unnamed: 6, Unnamed: 7, Unnamed: 8, UnsubTime |
+| INDIVIDUALUNSUBS | eventi unsubscribe clienti. | 14 | CampId, CampName, Data type, Email, IndividualId, MsgId, Notes, PkId, Questions, Role, Unnamed: 6, Unnamed: 7, Unnamed: 8, UnsubTime |
+| CAMPAIGNMETA | metadati campagne. | 20 | Area, Area2, Area3, Area4, CampId, CampName, CampaignImage, CampaignImageUrl, CampaignType, Channel, Data type, Market, Notes, PromotedVoyage, Questions, Role, SendTime, SubjectLine, TableName, Target |
+| WEBREQUEST | richieste web. | 26 | BrochureRequested, Data type, Date, Destination, Detail, IndividualId, MarketingEffort, NewMarketingEffort, Note, Notes, OriginalId, Questions, RequestSubType, RequestType, RequestTypology, Role, Ship, SourceId, SuiteCategory, Voyage, WRCod, WorkingWithAgent, _inputFile, _loadingTs, areacod, uwrid |
+| WEBQUOTE | richieste preventivo da web con dati cliente, booking e richieste specifiche. | 36 | Att01, Att02, Att03, Att04, Att05, Att06, Att07, Att08, Att09, Att10, Att11, Att12, Att13, Att14, Att15, BkgCod, Created, CreatedBy, CurrencyCod, Data type, Email, MarketCod, NameFirst, NameLast, Notes, NumPax, Phone, Questions, RequestID, Role, SpecialRequest, StgBkgFromWebSiteID, Title, _id, _inputFile, _loadingTs |
+| BKGROLE | associazione tra booking, passeggeri e ruoli. | 10 | BkgCabinCod, BkgCod, BkgPaxCod, BkgStatus, Data type, IndividualId, Notes, Questions, Role, StatusPax |
+| CABIN_COD | lookup codici cabine e categorie. | 6 | Data type, MC, Notes, Questions, Role, catg |
+| INDIVIDUALMERGED | mapping tra ID cliente originali e merge. | 7 | Data type, Individual_Id, Individual_Id_Merged, LoadingDate, Notes, Questions, Role |
+| PORT | informazioni sul porto. | 12 | City, CityCity, CityCod, CityID, Country, Data type, Latitude, Longitude, Notes, PortWingsCod, Questions, Role |
+| SHIP | informazioni sulla nave. | 10 | Data type, Notes, Questions, Role, Ship, ShipCategoryCod, ShipMasterConversion, ShipResCod, ValidFrom, ValidTo |
+| TOUCH | storico interazioni CRM (call, follow-up, contatti) con stato e outcome. | 22 | AssignedTo, CallDate, CallOutcome, CallStatus, CallType, ConnectMessageID, Counter, CreationDate, CreationUser, DWHLastUpdate, Data type, FirstParentId, FollowUpDate, Id, IndividualId, LastParentId, LinkGroup, LinkType, Notes, Questions, Role, ScheduleDate |
+| REDEMPTIONFCC | utilizzo e redenzione Future Cruise Credits (FCC) su booking. | 12 | Amount, BkgCod, BkgPaxCod, CertificateID, CertificateTypeCod, CurrencyCod, Data type, Notes, Questions, Role, SourceBkgCod, SourceID |
+| BOOKINGSWRFULL | booking provenienti da web request con valore e stato. | 20 | BkgId, BookingCreationDate, BookingStatus, BookingValue, Channel, Data type, GrossCruiseValue, Individual_Id, Notes, OriginalID, Questions, Request_Source, Role, Saildate, Unnamed: 6, Unnamed: 7, Unnamed: 8, WebRequestDate, _inputFile, _loadingTs |
+| NATIONACCOUNT | clienti corporate / national account con classificazione e status. | 11 | Data type, IndividualId, Market, NACod, NAName, NAType, Notes, Questions, Role, Status, Unnamed: 6 |
+| VOYAGE | informazioni sul viaggio. | 20 | AccountingVoyage, AreaSubCategory, AvailableBerthDays, Data type, DebarkPortCod, Embark, EmbarkPortCod, Itinerary, Notes, Questions, RevenueArea, Role, TopArea, debark, destination, saildate, saildateto, shipcod, voycod, voydays |
+| CNS | inforazioni su associati (agenzie, consorzi). | 20 | ActivityFirst, ActivityLast, AgenciesClosed, AgenciesOpen, AgenciesTotal, BkGBkCY, BkGBkPY, BkgBKTotal, Cns, CnsCod, CnsID, CnsMarket, CnsStatus, Data type, LastBKConfirmationDate, NAName, Nacod, Notes, Questions, Role |
+| BKGHDR | header booking con informazioni principali (date, stato, nave, agente, pax). | 33 | AgencyCod, Area, BkFlag, BkgCod, BkgStatus, BookingFirstInsertDate, CabinCod, CancelDate, Channel, Confirmationdate, CreationDate, CreationResAgentCod, Data type, Days, Debark, Domande, EarlyBookingBonus, Embark, FareClass, FirstCabin, IndividualidAgent, Market, Note, OnBoardBkg, OnBoardConfirmedBkg, PaxCount, SailDate, SegmentMaster, Ship, Stato, Voyage, VoyageCount, VoyageDateFromCod |
+| INDIVIDUAL | anagrafica cliente completa (demografia, contatti, storico booking, segmentazione marketing). | 151 | Address, AddressId, AddressValidity, BirthDate, Bkgs, BkgsBK, BkgsBkToSail, BkgsCX, BkgsOF, BkgsOFToSail, BkgsSailed, CCPTEmail, CCPTExtension, CCPTFax, CCPTName, CCPTPersonalizeEmail, CCPTPhone, CCPTPhone2, City, CountryCod, County, Data type, DateInsert, DateLastModify, DoNotEmail, DoNotMail, DoNotPhone, Domande, Email, Gender, HHAddress, HHAddressID, HHAddressValidity, HHCity, HHCountry, HHCounty, HHDegreeX, HHDegreeY, HHMktCod, HHRegion, HHState, HHZip, HHZip4, HouseholdId, IndividualId, IsAgent, Language, LastAgency, LastAgencyCod, LastAgencyDate, LastDrcDate, LastDrcID, LastEmpBkgDrt, LastTouchDate, LastUpdate, LastUpdateAction, LastUpdateEmail, MktCountry, Monetary_Segment, NameFirst, NameLast, NameMiddle, NationalityCod, Note, OKtoEmail, OKtoMail, OKtoSMS, Occupation, PersonalizeEmail, Phone, PortsSeen, PrimaryIndividual, RF_Segment, RegionCountry, SailDateLast, SailDateNext, Salutation, SharingEmailCounter, SingleTravels, State, Stato, StatusIndividual, Suppress, SuppressionReason, VSDays, ValidRecord, VoyFirstYear, VoyLastYear, Voys, VoysAFIO, VoysALAS, VoysASNZ, VoysCARI, VoysCHTR, VoysEANT, VoysEARC, VoysEURP, VoysEXPD, VoysFARE, VoysGLPG, VoysMEDT, VoysNENG, VoysNEUR, VoysSOAM, VoysSOPC, VoysTRAN, VoysWRLD, VsCod, WRAfricaIndian, WRAlaska, WRAmericaSouth, WRAntarctica, WRArctic, WRAustralasia, WRCanada, WRCaribbean, WRClassicCruise, WRExpeditions, WRFarEast, WRGalapagos, WRGrandVoyages, WRLast, WRMed, WRMicroMelaPoly, WRNEurope, WRTrans, WRWorld, WRall, WRs, WRsBKG, WRsBRO, WRsCall, WRsEmailUs, WRsQuote, Zip, Zip4, _inputFile, _lastModifiedTs, _loadingTs, degreesX, degreesY, donotcall, donotcallreasonid, donotemailreasonid, donotmailreasonid, donotphonereasonid, emailvalidity, mktcodlast, ownerid, ownername, phonevalidity |
+| AGENCY | informazioni sull'agenzia. | 48 | ActivityFirst, ActivityLast, Address, Address1, Agency, AgencyCod, AgencyId, AgnClosedFlg, BkgsBK, BkgsBKCY, BkgsBKPY, BkgsCX, BkgsOF, CharterFlg, City, Cluster, CnsAgenciesOpen, CnsCod, CnsName, CountryCod, County, CrcCod, Data type, Domande, LastOFtoBKDate, MainContact, MktCod, NAName, Nacod, Note, NumBKinFutureSails, NumCXinLastWeeks, PaxsFITCY, PaxsFITPY, Phone, RsdName, SalesRepCod, SentToWings, StateCod, Stato, StatusAgencyDesc, TotBkgAmn, TotFITBkgAmnCY, TotFITBkgAmnPY, VAT, Zip, Zip4, _loadingTs |
+| AGENT | informazioni sull'agente di viaggio. | 63 | Address, AddressId, AddressValidity, BirthDate, Bkgs, BkgsBK, BkgsBkToSail, BkgsCX, BkgsOF, BkgsOFToSail, City, Country, CountryAllOK, CountryCod, County, Data type, DegreesX, DegreesY, DoNotContact, DoNotContactReason, DoNotEmail, DoNotEmailReason, DoNotMail, DoNotMailReason, DoNotPhone, DoNotPhoneReason, Domande, Email, EmailValidity, Gender, HouseholdId, IndividualId, Language, MktCodLast, MktCountry, NameFirst, NameLast, NameMiddle, Note, Phone, PhoneExtension, PhoneValidity, PrimaryIndividual, RegionCountry, RsdEmail, RsdName, RsdPhone, SailDateLast, SailDateNext, Salutation, State, Stato, StatusIndividual, Suppress, SuppressionReason, VSDays, VoyFirstYear, VoyLastYear, Voys, VsCod, Zip, Zip4, _loadingTs |
+| HIERARCHY | relazioni personali tra individui. | 8 | Data type, Domande, IndividualIdChild, IndividualIdParent, Note, Role, Stato, ValidityDateFrom |
+
+---
+
+## Struttura
+
+### Tabelle DB
+
+- **Done**  
+  - Importanza: **Low**  
+  - Descrizione: Stato di completamento. Presente nei fogli:Tabelle DB. Tabelle DB.
+- **Nome tabella**  
+  - Importanza: **Low**  
+  - Descrizione: Nome della tabella. Presente nei fogli:Tabelle DB. Tabelle DB.
+- **Numero colonne**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di colonne. Presente nei fogli:Tabelle DB. Tabelle DB.
+- **Numero righe**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di righe. Presente nei fogli:Tabelle DB. Tabelle DB.
+- **Prio order**  
+  - Importanza: **Low**  
+  - Descrizione: Priorità dell'ordine. Presente nei fogli:Tabelle DB. Tabelle DB.
+- **Schema**  
+  - Importanza: **Low**  
+  - Descrizione: Schema del database. Presente nei fogli:Tabelle DB. Tabelle DB.
+
+### AGNCSNNA
+
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **UTCDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data/ora in formato UTC. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **_id**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo record. Presente nei fogli:AGNCSNNA, WEBQUOTE.
+- **_inputFile**  
+  - Importanza: **Low**  
+  - Descrizione: File sorgente di importazione. Presente nei fogli:AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD. AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD.
+- **ActionType**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di azione. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Entity1Cod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice della prima entità. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Entity1Desc**  
+  - Importanza: **Low**  
+  - Descrizione: Descrizione della prima entità. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Entity1Type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo della prima entità. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Entity2Cod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice della seconda entità. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Entity2Desc**  
+  - Importanza: **Low**  
+  - Descrizione: Descrizione della seconda entità. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Entity2Type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo della seconda entità. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **RelationType**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di relazione. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **UserLogin**  
+  - Importanza: **Low**  
+  - Descrizione: Login dell'utente. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+- **UserName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome dell'utente. Presente nei fogli:AGNCSNNA. AGNCSNNA.
+
+### REVENUE
+
+- **BookingCode**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo della prenotazione. Presente nei fogli:REVENUE.
+- **BookingConfirmationDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di conferma della prenotazione. Presente nei fogli:REVENUE.
+- **BookingFirstInsertDate**  
+  - Importanza: **High**  
+  - Descrizione: Prima data di inserimento della prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **BookingStatus**  
+  - Importanza: **High**  
+  - Descrizione: Stato della prenotazione. Presente nei fogli:BOOKINGSWRFULL, REVENUE.
+- **CancellationDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di cancellazione della prenotazione. Presente nei fogli:REVENUE.
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **EarlyBookingBonus**  
+  - Importanza: **High**  
+  - Descrizione: Flag che indica un bonus per prenotazioni anticipate. Presente nei fogli:BKGHDR, REVENUE.
+- **EarlyBookingDiscount**  
+  - Importanza: **High**  
+  - Descrizione: Sconto per prenotazioni anticipate. Presente nei fogli:REVENUE. REVENUE.
+- **FareClass**  
+  - Importanza: **High**  
+  - Descrizione: Classe tariffaria della prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **NumberOfBooking**  
+  - Importanza: **High**  
+  - Descrizione: Numero di prenotazioni. Presente nei fogli:REVENUE. REVENUE.
+- **PaxDays**  
+  - Importanza: **High**  
+  - Descrizione: Numero di giorni di navigazione per passeggero. Presente nei fogli:REVENUE.
+- **Saildate**  
+  - Importanza: **High**  
+  - Descrizione: Data di partenza della crociera. Presente nei fogli:BOOKINGSWRFULL, REVENUE.
+- **Ship**  
+  - Importanza: **High**  
+  - Descrizione: Nome o identificativo della nave. Presente nei fogli:BKGHDR, REVENUE, SHIP.
+- **TotalBookingAmount**  
+  - Importanza: **High**  
+  - Descrizione: Importo totale della prenotazione. Presente nei fogli:REVENUE.
+- **TotalBookingCommission**  
+  - Importanza: **High**  
+  - Descrizione: Commissione totale della prenotazione. Presente nei fogli:REVENUE.
+- **Voyage**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo del viaggio. Presente nei fogli:BKGHDR, REVENUE, WEBREQUEST.
+- **Area**  
+  - Importanza: **Medium**  
+  - Descrizione: Area di prenotazione. Presente nei fogli:BKGHDR, CAMPAIGNMETA, REVENUE.
+- **BkgPaxCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice passeggero della prenotazione. Presente nei fogli:BKGROLE, REDEMPTIONFCC, REVENUE.
+- **BkgPaxCodCompleted**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice passeggero completo della prenotazione. Presente nei fogli:REVENUE. REVENUE.
+- **Currency**  
+  - Importanza: **Medium**  
+  - Descrizione: Valuta usata nella prenotazione. Presente nei fogli:REVENUE.
+- **Days**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di giorni di navigazione per passeggero relativo alla prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **DebarkPort**  
+  - Importanza: **Medium**  
+  - Descrizione: Porto di sbarco relativo al viaggio. Presente nei fogli:REVENUE.
+- **EmbarkPort**  
+  - Importanza: **Medium**  
+  - Descrizione: Porto di imbarco relativo al viaggio. Presente nei fogli:REVENUE.
+- **FareCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice tariffario della prenotazione. Presente nei fogli:REVENUE.
+- **Market**  
+  - Importanza: **Medium**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:BKGHDR, CAMPAIGNMETA, HOUSEHOLD.
+- **NumberOfRepetearFifthOrMoreTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di ripetizioni dal quinto ordine in poi. Presente nei fogli:REVENUE. REVENUE.
+- **NumberOfRepetearFourthTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di ripetizioni dal quarto ordine. Presente nei fogli:REVENUE. REVENUE.
+- **NumberOfRepetearSecondTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di ripetizioni dal secondo ordine. Presente nei fogli:REVENUE. REVENUE.
+- **NumberOfRepetearThirdTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di ripetizioni dal terzo ordine. Presente nei fogli:REVENUE. REVENUE.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **SegmentMaster**  
+  - Importanza: **Medium**  
+  - Descrizione: Tipo della prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **ShipBoardCredit**  
+  - Importanza: **Medium**  
+  - Descrizione: Credito a bordo. Presente nei fogli:REVENUE.
+- **TotalPayment**  
+  - Importanza: **Medium**  
+  - Descrizione: Pagamento totale. Presente nei fogli:REVENUE.
+- **VoyageNumberChild**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero del viaggio per bambini. Presente nei fogli:REVENUE. REVENUE.
+- **VoyageSegmentCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice del segmento di viaggio. Presente nei fogli:REVENUE. REVENUE.
+- **VsDays**  
+  - Importanza: **Medium**  
+  - Descrizione: Loyalty points. Presente nei fogli:REVENUE.
+- **AccrualFcc**  
+  - Importanza: **Low**  
+  - Descrizione: Accrualfcc. Presente nei fogli:REVENUE. REVENUE.
+- **AgencyCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice dell'agenzia. Presente nei fogli:AGENCY, BKGHDR, REVENUE.
+- **AgencyContact**  
+  - Importanza: **Low**  
+  - Descrizione: Contatto dell'agenzia. Presente nei fogli:REVENUE. REVENUE.
+- **AirCharges**  
+  - Importanza: **Low**  
+  - Descrizione: Addebiti del volo. Presente nei fogli:REVENUE.
+- **AirCharterSubsidy**  
+  - Importanza: **Low**  
+  - Descrizione: Sussidio per volo charter. Presente nei fogli:REVENUE. REVENUE.
+- **AirCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione del volo. Presente nei fogli:REVENUE.
+- **AirCost**  
+  - Importanza: **Low**  
+  - Descrizione: Costo del volo. Presente nei fogli:REVENUE.
+- **AirDistress**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore di distress aereo. Presente nei fogli:REVENUE. REVENUE.
+- **AirFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Flag che indica un volo. Presente nei fogli:REVENUE.
+- **AirPromoCredit**  
+  - Importanza: **Low**  
+  - Descrizione: Credito promozionale aereo. Presente nei fogli:REVENUE. REVENUE.
+- **AnticipatedPaymentBonus**  
+  - Importanza: **Low**  
+  - Descrizione: Bonus per pagamento anticipato. Presente nei fogli:REVENUE.
+- **ASPax**  
+  - Importanza: **Low**  
+  - Descrizione: As passeggero. Presente nei fogli:REVENUE. REVENUE.
+- **BkgTypeDetail**  
+  - Importanza: **Low**  
+  - Descrizione: Dettaglio del tipo di prenotazione. Presente nei fogli:REVENUE. REVENUE.
+- **CabinCategoryCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice categoria cabina. Presente nei fogli:REVENUE.
+- **CabinCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice cabina. Presente nei fogli:BKGHDR, REVENUE.
+- **CategoryDescription**  
+  - Importanza: **Low**  
+  - Descrizione: Descrizione della categoria. Presente nei fogli:REVENUE.
+- **CharterAirFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Flag che indica un volo charter. Presente nei fogli:REVENUE.
+- **Combo**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE.
+- **ComboDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE. REVENUE.
+- **CommissionManualAdjustment**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione. Presente nei fogli:REVENUE. REVENUE.
+- **CommStd**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione. Presente nei fogli:REVENUE.
+- **ConsortiumCod**  
+  - Importanza: **Low**  
+  - Descrizione: Consortium ID codice. Presente nei fogli:REVENUE.
+- **CruiseDistress**  
+  - Importanza: **Low**  
+  - Descrizione: Cruisedistress. Presente nei fogli:REVENUE. REVENUE.
+- **CruiseFare**  
+  - Importanza: **Low**  
+  - Descrizione: Cruise fare. Presente nei fogli:REVENUE.
+- **CustRelDisc**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **EarnedBerthsTcDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE. REVENUE.
+- **FccValue**  
+  - Importanza: **Low**  
+  - Descrizione: Fccvalue. Presente nei fogli:REVENUE. REVENUE.
+- **FinalCrs**  
+  - Importanza: **Low**  
+  - Descrizione: Finalcrs. Presente nei fogli:REVENUE. REVENUE.
+- **FlagCabinUpgrade**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:REVENUE.
+- **GatewayCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice del gateway. Presente nei fogli:REVENUE.
+- **GatewayCost**  
+  - Importanza: **Low**  
+  - Descrizione: Costo del gateway. Presente nei fogli:REVENUE.
+- **GrossCruiseRev**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo lordo della crociera. Presente nei fogli:REVENUE.
+- **GroupCod**  
+  - Importanza: **Low**  
+  - Descrizione: Agency group ID codice. Presente nei fogli:REVENUE.
+- **GrpComm**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione. Presente nei fogli:REVENUE.
+- **HotelCharges**  
+  - Importanza: **Low**  
+  - Descrizione: Addebiti alberghieri. Presente nei fogli:REVENUE.
+- **HotelCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione alberghiera. Presente nei fogli:REVENUE.
+- **HotelCost**  
+  - Importanza: **Low**  
+  - Descrizione: Costo dell'hotel. Presente nei fogli:REVENUE.
+- **HotelFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore che segnala un hotel. Presente nei fogli:REVENUE.
+- **HotelSubsidy**  
+  - Importanza: **Low**  
+  - Descrizione: Sussidio alberghiero. Presente nei fogli:REVENUE. REVENUE.
+- **HtlDistress**  
+  - Importanza: **Low**  
+  - Descrizione: Htldistress. Presente nei fogli:REVENUE. REVENUE.
+- **IncentiveGroupDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE. REVENUE.
+- **InsuranceCharge**  
+  - Importanza: **Low**  
+  - Descrizione: Insurance charge. Presente nei fogli:REVENUE.
+- **InternationalAirFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Flag che indica un volo internazionale. Presente nei fogli:REVENUE.
+- **LandCharge**  
+  - Importanza: **Low**  
+  - Descrizione: Addebito per esperienza terrestre. Presente nei fogli:REVENUE.
+- **LandCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione per esperienza terrestre. Presente nei fogli:REVENUE.
+- **LandCost**  
+  - Importanza: **Low**  
+  - Descrizione: Costo per esperienza terrestre. Presente nei fogli:REVENUE.
+- **LandFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Flag che indica un'esperienza terrestre. Presente nei fogli:REVENUE.
+- **LandSubsidy**  
+  - Importanza: **Low**  
+  - Descrizione: Sussidio per esperienza terrestre. Presente nei fogli:REVENUE. REVENUE.
+- **LndDistress**  
+  - Importanza: **Low**  
+  - Descrizione: Lnddistress. Presente nei fogli:REVENUE. REVENUE.
+- **Miscellaneus**  
+  - Importanza: **Low**  
+  - Descrizione: Miscellaneus. Presente nei fogli:REVENUE.
+- **MSCAirCredit**  
+  - Importanza: **Low**  
+  - Descrizione: MSC Air Credit. Presente nei fogli:REVENUE.
+- **NetCruiseRev**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto della crociera. Presente nei fogli:REVENUE.
+- **NetFcc**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto FCC. Presente nei fogli:REVENUE. REVENUE.
+- **NetRevenueAir**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto del volo. Presente nei fogli:REVENUE. REVENUE.
+- **NetRevenueHotel**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto dell'hotel. Presente nei fogli:REVENUE. REVENUE.
+- **NetRevenueInsurance**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto dell'assicurazione. Presente nei fogli:REVENUE. REVENUE.
+- **NetRevenueLand**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto della parte terrestre. Presente nei fogli:REVENUE. REVENUE.
+- **NetRevenueShorex**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto dello shorex. Presente nei fogli:REVENUE. REVENUE.
+- **NetRevenueTransfer**  
+  - Importanza: **Low**  
+  - Descrizione: Ricavo netto del trasferimento. Presente nei fogli:REVENUE. REVENUE.
+- **NetTACruiseRevenue**  
+  - Importanza: **Low**  
+  - Descrizione: Netta cruiserevenue. Presente nei fogli:REVENUE. REVENUE.
+- **NotcommissionalFee**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione non commissionabile. Presente nei fogli:REVENUE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **NumberOfPax**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di passeggeri. Presente nei fogli:REVENUE. REVENUE.
+- **NumberOfVSPax**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di passeggeri VS. Presente nei fogli:REVENUE. REVENUE.
+- **Onboard**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE.
+- **OtherDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE. REVENUE.
+- **OverrideCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione. Presente nei fogli:REVENUE.
+- **Penalty**  
+  - Importanza: **Low**  
+  - Descrizione: Penale. Presente nei fogli:REVENUE. REVENUE.
+- **PortCharges**  
+  - Importanza: **Low**  
+  - Descrizione: Spese portuali. Presente nei fogli:REVENUE. REVENUE.
+- **PostCruiseHotelFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore che segnala hotel post-crociera. Presente nei fogli:REVENUE.
+- **PreCruiseHotelFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore che segnala hotel pre-crociera. Presente nei fogli:REVENUE.
+- **PriceCategoryCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice categoria cabina. Presente nei fogli:REVENUE.
+- **PriceCategoryDescription**  
+  - Importanza: **Low**  
+  - Descrizione: Cabin Category description. Presente nei fogli:REVENUE.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ResAgent**  
+  - Importanza: **Low**  
+  - Descrizione: Resagent. Presente nei fogli:REVENUE. REVENUE.
+- **ShorexCharge**  
+  - Importanza: **Low**  
+  - Descrizione: Shorexcharge. Presente nei fogli:REVENUE.
+- **ShorexCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione. Presente nei fogli:REVENUE.
+- **ShorexCost**  
+  - Importanza: **Low**  
+  - Descrizione: Shorexcost. Presente nei fogli:REVENUE.
+- **ShorexFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Flag che indica uno shorex. Presente nei fogli:REVENUE.
+- **ShorexSubsidy**  
+  - Importanza: **Low**  
+  - Descrizione: Shorexsubsidy. Presente nei fogli:REVENUE. REVENUE.
+- **ShxDistress**  
+  - Importanza: **Low**  
+  - Descrizione: Shxdistress. Presente nei fogli:REVENUE. REVENUE.
+- **TfrDistress**  
+  - Importanza: **Low**  
+  - Descrizione: Tfrdistress. Presente nei fogli:REVENUE. REVENUE.
+- **TotalAmountDue**  
+  - Importanza: **Low**  
+  - Descrizione: Importo totale dovuto. Presente nei fogli:REVENUE.
+- **TotalCharge**  
+  - Importanza: **Low**  
+  - Descrizione: Addebito totale. Presente nei fogli:REVENUE.
+- **TotalCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione totale. Presente nei fogli:REVENUE.
+- **TotalCruiseDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE. REVENUE.
+- **TourConductorDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto per l'accompagnatore. Presente nei fogli:REVENUE.
+- **ToUsdActual**  
+  - Importanza: **Low**  
+  - Descrizione: Value Conversion to US dollars. Presente nei fogli:REVENUE.
+- **TransferCharges**  
+  - Importanza: **Low**  
+  - Descrizione: Addebiti per trasferimento. Presente nei fogli:REVENUE.
+- **TransferCommission**  
+  - Importanza: **Low**  
+  - Descrizione: Commissione per trasferimento. Presente nei fogli:REVENUE.
+- **TransferCost**  
+  - Importanza: **Low**  
+  - Descrizione: Costo del trasferimento. Presente nei fogli:REVENUE.
+- **TransferFlag**  
+  - Importanza: **Low**  
+  - Descrizione: Flag che indica un trasferimento. Presente nei fogli:REVENUE.
+- **TransferSubsidy**  
+  - Importanza: **Low**  
+  - Descrizione: Sussidio per trasferimento. Presente nei fogli:REVENUE. REVENUE.
+- **TTLTacticalDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE. REVENUE.
+- **UsedFccValue**  
+  - Importanza: **Low**  
+  - Descrizione: Valore FCC utilizzato. Presente nei fogli:REVENUE. REVENUE.
+- **UsedNetFcc**  
+  - Importanza: **Low**  
+  - Descrizione: Valore netto FCC utilizzato. Presente nei fogli:REVENUE. REVENUE.
+- **VatCost**  
+  - Importanza: **Low**  
+  - Descrizione: Vatcost. Presente nei fogli:REVENUE.
+- **VSDiscount**  
+  - Importanza: **Low**  
+  - Descrizione: Sconto. Presente nei fogli:REVENUE.
+- **WriteOff**  
+  - Importanza: **Low**  
+  - Descrizione: Svalutazione. Presente nei fogli:REVENUE. REVENUE.
+
+### HOUSEHOLD
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **HeadIndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo dell'intestatario principale della famiglia. Presente nei fogli:HOUSEHOLD.
+- **HHDateFirstBkg**  
+  - Importanza: **High**  
+  - Descrizione: Data della prima prenotazione della famiglia. Presente nei fogli:HOUSEHOLD.
+- **HHDateLastBkg**  
+  - Importanza: **High**  
+  - Descrizione: Data dell'ultima prenotazione della famiglia. Presente nei fogli:HOUSEHOLD.
+- **HHIndividualIdAgentLast**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo dell'ultimo agente associato all'individuo. Presente nei fogli:HOUSEHOLD.
+- **HHOKtoMail**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:HOUSEHOLD.
+- **LangMailingName**  
+  - Importanza: **High**  
+  - Descrizione: Common titles. Presente nei fogli:HOUSEHOLD.
+- **MailableFamilyName**  
+  - Importanza: **High**  
+  - Descrizione: Common titles. Presente nei fogli:HOUSEHOLD.
+- **MailName**  
+  - Importanza: **High**  
+  - Descrizione: Household surname. Presente nei fogli:HOUSEHOLD.
+- **Phone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENCY, AGENT, HOUSEHOLD.
+- **ValidityDateFrom**  
+  - Importanza: **High**  
+  - Descrizione: Data di validità inizio. Presente nei fogli:HIERARCHY, HOUSEHOLD.
+- **_lastModifiedTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Data/ora dell'ultima modifica. Presente nei fogli:HOUSEHOLD, INDIVIDUAL. HOUSEHOLD, INDIVIDUAL.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **HH_VsDays**  
+  - Importanza: **Medium**  
+  - Descrizione: Loyalty points. Presente nei fogli:HOUSEHOLD.
+- **HHBkgChannelLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:HOUSEHOLD.
+- **HHBkgFareClassLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Tipo tariffario. Presente nei fogli:HOUSEHOLD.
+- **HHSailDateLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Data di partenza della crociera. Presente nei fogli:HOUSEHOLD.
+- **HHSailDateNext**  
+  - Importanza: **Medium**  
+  - Descrizione: Data di partenza della crociera. Presente nei fogli:HOUSEHOLD.
+- **HHVoyFirstYear**  
+  - Importanza: **Medium**  
+  - Descrizione: Anno del primo viaggio della famiglia. Presente nei fogli:HOUSEHOLD.
+- **HHVoyLastYear**  
+  - Importanza: **Medium**  
+  - Descrizione: Anno dell'ultimo viaggio della famiglia. Presente nei fogli:HOUSEHOLD.
+- **LastUpdate**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultimo aggiornamento. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **Market**  
+  - Importanza: **Medium**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:BKGHDR, CAMPAIGNMETA, HOUSEHOLD.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ValidityDateTo**  
+  - Importanza: **Medium**  
+  - Descrizione: Data di validità fine. Presente nei fogli:HOUSEHOLD.
+- **_inputFile**  
+  - Importanza: **Low**  
+  - Descrizione: File sorgente di importazione. Presente nei fogli:AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD. AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD.
+- **addressId**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo dell'indirizzo famigliare. Presente nei fogli:HOUSEHOLD.
+- **changedname**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:HOUSEHOLD.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **FamilyName**  
+  - Importanza: **Low**  
+  - Descrizione: Household nome. Presente nei fogli:HOUSEHOLD.
+- **HHAddress**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHAddressValidity**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHAgencyCodLast**  
+  - Importanza: **Low**  
+  - Descrizione: Codice dell'agenzia. Presente nei fogli:HOUSEHOLD.
+- **HHCity**  
+  - Importanza: **Low**  
+  - Descrizione: Città dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHCnsCodLast**  
+  - Importanza: **Low**  
+  - Descrizione: Consortium codice. Presente nei fogli:HOUSEHOLD.
+- **HHCountry**  
+  - Importanza: **Low**  
+  - Descrizione: Paese dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHCountryCod**  
+  - Importanza: **Low**  
+  - Descrizione: Paese dell'household. Presente nei fogli:HOUSEHOLD.
+- **HHCounty**  
+  - Importanza: **Low**  
+  - Descrizione: Regione dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHMarketRegion**  
+  - Importanza: **Low**  
+  - Descrizione: Household region. Presente nei fogli:HOUSEHOLD.
+- **HHPostalCode**  
+  - Importanza: **Low**  
+  - Descrizione: CAP dell'household. Presente nei fogli:HOUSEHOLD.
+- **HHRFSegment**  
+  - Importanza: **Low**  
+  - Descrizione: Segmento HHRF. Presente nei fogli:HOUSEHOLD. HOUSEHOLD.
+- **HHState**  
+  - Importanza: **Low**  
+  - Descrizione: Stato dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHZip4**  
+  - Importanza: **Low**  
+  - Descrizione: CAP dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HouseholdId**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'household. Presente nei fogli:AGENT, HOUSEHOLD, HOUSEHOLDSEND.
+- **Individuals**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di individui nella famiglia. Presente nei fogli:HOUSEHOLD.
+- **LangSalutation**  
+  - Importanza: **Low**  
+  - Descrizione: Household salutation. Presente nei fogli:HOUSEHOLD.
+- **Language**  
+  - Importanza: **Low**  
+  - Descrizione: Lingua. Presente nei fogli:AGENT, HOUSEHOLD, INDIVIDUAL.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **owner**  
+  - Importanza: **Low**  
+  - Descrizione: Assigned CCPT. Presente nei fogli:HOUSEHOLD.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **status**  
+  - Importanza: **Low**  
+  - Descrizione: Stato dell'household. Presente nei fogli:HOUSEHOLD.
+- **ValidRecord**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+
+### GOOGLESOURCEWEBREQUESTS
+
+- **super_id**  
+  - Importanza: **High**  
+  - Descrizione: Browsing session codice. Presente nei fogli:GOOGLESOURCEWEBREQUESTS.
+- **uwrid**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo univoco della sessione di navigazione. Presente nei fogli:GOOGLESOURCEWEBREQUESTS, WEBREQUEST.
+- **webrequest_timestamp**  
+  - Importanza: **High**  
+  - Descrizione: Data e ora della richiesta web. Presente nei fogli:GOOGLESOURCEWEBREQUESTS.
+- **campaign**  
+  - Importanza: **Medium**  
+  - Descrizione: Campagna. Presente nei fogli:GOOGLESOURCEWEBREQUESTS. GOOGLESOURCEWEBREQUESTS.
+- **campaign_ad_content**  
+  - Importanza: **Medium**  
+  - Descrizione: Contenuto pubblicitario della campagna. Presente nei fogli:GOOGLESOURCEWEBREQUESTS. GOOGLESOURCEWEBREQUESTS.
+- **campaign_keywords**  
+  - Importanza: **Medium**  
+  - Descrizione: Parole chiave della campagna. Presente nei fogli:GOOGLESOURCEWEBREQUESTS. GOOGLESOURCEWEBREQUESTS.
+- **campaign_source**  
+  - Importanza: **Medium**  
+  - Descrizione: Fonte della campagna. Presente nei fogli:GOOGLESOURCEWEBREQUESTS. GOOGLESOURCEWEBREQUESTS.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **channel**  
+  - Importanza: **Low**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:GOOGLESOURCEWEBREQUESTS.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **market**  
+  - Importanza: **Low**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:GOOGLESOURCEWEBREQUESTS.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **visit_id**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo della visita. Presente nei fogli:GOOGLESOURCEWEBREQUESTS. GOOGLESOURCEWEBREQUESTS.
+- **wrid**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo WR originale. Presente nei fogli:GOOGLESOURCEWEBREQUESTS.
+
+### HOUSEHOLDSEND
+
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **SendTime**  
+  - Importanza: **High**  
+  - Descrizione: Data di invio del messaggio. Presente nei fogli:AGENTSEND, CAMPAIGNMETA, HOUSEHOLDSEND.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **HouseholdId**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'household. Presente nei fogli:AGENT, HOUSEHOLD, HOUSEHOLDSEND.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### CAMPAIGNPARENTNAME
+
+- **BaseCampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:CAMPAIGNPARENTNAME.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ParentCampName**  
+  - Importanza: **Low**  
+  - Descrizione: Macro-categoria della campagna. Presente nei fogli:CAMPAIGNPARENTNAME.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### AGENTCLICK
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualIdAgent**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'agente. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ClickTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Data e ora del clic. Presente nei fogli:AGENTCLICK, INDIVIDUALCLICK.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ClickId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del clic. Presente nei fogli:AGENTCLICK, INDIVIDUALCLICK.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **IpAddress**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo IP. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del collegamento. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkName**  
+  - Importanza: **Low**  
+  - Descrizione: Link nome clicked. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### INDIVIDUALCLICK
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ClickTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Data e ora del clic. Presente nei fogli:AGENTCLICK, INDIVIDUALCLICK.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ClickId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del clic. Presente nei fogli:AGENTCLICK, INDIVIDUALCLICK.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **IpAddress**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo IP. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del collegamento. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkName**  
+  - Importanza: **Low**  
+  - Descrizione: Link nome clicked. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### AGENTBOUNCE
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **EmailSp1StatusId**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **IndividualIdAgent**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'agente. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **BounceTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Data e ora dell'evento di interazione. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CategoryId**  
+  - Importanza: **Low**  
+  - Descrizione: ID della categoria. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **CategoryName**  
+  - Importanza: **Low**  
+  - Descrizione: Category nome. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### INDIVIDUALBOUNCE
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **EmailSp1StatusId**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **BounceTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Data e ora dell'evento di interazione. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CategoryId**  
+  - Importanza: **Low**  
+  - Descrizione: ID della categoria. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **CategoryName**  
+  - Importanza: **Low**  
+  - Descrizione: Category nome. Presente nei fogli:AGENTBOUNCE, INDIVIDUALBOUNCE.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### AGENTOPEN
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualIdAgent**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'agente. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **OpenTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Data e ora dell'evento di interazione. Presente nei fogli:AGENTOPEN, INDIVIDUALOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **IpAddress**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo IP. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del collegamento. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkName**  
+  - Importanza: **Low**  
+  - Descrizione: Link nome clicked. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **OpenId**  
+  - Importanza: **Low**  
+  - Descrizione: ID di apertura. Presente nei fogli:AGENTOPEN, INDIVIDUALOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### INDIVIDUALOPEN
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **OpenTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Data e ora dell'evento di interazione. Presente nei fogli:AGENTOPEN, INDIVIDUALOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **IpAddress**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo IP. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del collegamento. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **LinkName**  
+  - Importanza: **Low**  
+  - Descrizione: Link nome clicked. Presente nei fogli:AGENTCLICK, AGENTOPEN, INDIVIDUALCLICK.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **OpenId**  
+  - Importanza: **Low**  
+  - Descrizione: ID di apertura. Presente nei fogli:AGENTOPEN, INDIVIDUALOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### AGENTSEND
+
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualIdAgent**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'agente. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **SendTime**  
+  - Importanza: **High**  
+  - Descrizione: Data di invio del messaggio. Presente nei fogli:AGENTSEND, CAMPAIGNMETA, HOUSEHOLDSEND.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### INDIVIDUALSEND
+
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **SendTime**  
+  - Importanza: **High**  
+  - Descrizione: Data di invio del messaggio. Presente nei fogli:AGENTSEND, CAMPAIGNMETA, HOUSEHOLDSEND.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### AGENTUNSUBS
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualIdAgent**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'agente. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **UnsubTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Unsubscription data. Presente nei fogli:AGENTUNSUBS, INDIVIDUALUNSUBS.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Unnamed: 6**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 6. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+- **Unnamed: 7**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 7. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+- **Unnamed: 8**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 8. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+
+### INDIVIDUALUNSUBS
+
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **UnsubTime**  
+  - Importanza: **Medium**  
+  - Descrizione: Unsubscription data. Presente nei fogli:AGENTUNSUBS, INDIVIDUALUNSUBS.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MsgId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PkId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del messaggio. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Unnamed: 6**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 6. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+- **Unnamed: 7**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 7. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+- **Unnamed: 8**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 8. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+
+### CAMPAIGNMETA
+
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **SendTime**  
+  - Importanza: **High**  
+  - Descrizione: Data di invio del messaggio. Presente nei fogli:AGENTSEND, CAMPAIGNMETA, HOUSEHOLDSEND.
+- **Area**  
+  - Importanza: **Medium**  
+  - Descrizione: Area di prenotazione. Presente nei fogli:BKGHDR, CAMPAIGNMETA, REVENUE.
+- **CampaignImage**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome del file immagine della campagna. Presente nei fogli:CAMPAIGNMETA.
+- **CampaignImageUrl**  
+  - Importanza: **Medium**  
+  - Descrizione: URL dell'immagine della campagna. Presente nei fogli:CAMPAIGNMETA.
+- **CampaignType**  
+  - Importanza: **Medium**  
+  - Descrizione: Tipo di campagna. Presente nei fogli:CAMPAIGNMETA.
+- **CampId**  
+  - Importanza: **Medium**  
+  - Descrizione: ID della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **CampName**  
+  - Importanza: **Medium**  
+  - Descrizione: Nome della campagna. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Market**  
+  - Importanza: **Medium**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:BKGHDR, CAMPAIGNMETA, HOUSEHOLD.
+- **PromotedVoyage**  
+  - Importanza: **Medium**  
+  - Descrizione: Identificativo del viaggio promosso. Presente nei fogli:CAMPAIGNMETA.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Area2**  
+  - Importanza: **Low**  
+  - Descrizione: Area promossa 2. Presente nei fogli:CAMPAIGNMETA.
+- **Area3**  
+  - Importanza: **Low**  
+  - Descrizione: Area promossa 3. Presente nei fogli:CAMPAIGNMETA.
+- **Area4**  
+  - Importanza: **Low**  
+  - Descrizione: Area promossa 4. Presente nei fogli:CAMPAIGNMETA.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **SubjectLine**  
+  - Importanza: **Low**  
+  - Descrizione: Oggetto del messaggio. Presente nei fogli:CAMPAIGNMETA.
+- **TableName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome della tabella. Presente nei fogli:CAMPAIGNMETA.
+- **Target**  
+  - Importanza: **Low**  
+  - Descrizione: Destinatario target. Presente nei fogli:CAMPAIGNMETA.
+
+### WEBREQUEST
+
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **OriginalId**  
+  - Importanza: **High**  
+  - Descrizione: Identification codice. Presente nei fogli:WEBREQUEST.
+- **Ship**  
+  - Importanza: **High**  
+  - Descrizione: Nome o identificativo della nave. Presente nei fogli:BKGHDR, REVENUE, SHIP.
+- **uwrid**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo univoco della sessione di navigazione. Presente nei fogli:GOOGLESOURCEWEBREQUESTS, WEBREQUEST.
+- **Voyage**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo del viaggio. Presente nei fogli:BKGHDR, REVENUE, WEBREQUEST.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **areacod**  
+  - Importanza: **Medium**  
+  - Descrizione: Area (destination) codice. Presente nei fogli:WEBREQUEST.
+- **Date**  
+  - Importanza: **Medium**  
+  - Descrizione: Dati della richiesta web. Presente nei fogli:WEBREQUEST.
+- **Destination**  
+  - Importanza: **Medium**  
+  - Descrizione: Destinazione cercata. Presente nei fogli:WEBREQUEST.
+- **MarketingEffort**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultima campagna digitale prima della WR. Presente nei fogli:WEBREQUEST.
+- **NewMarketingEffort**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultima campagna digitale prima della WR. Presente nei fogli:WEBREQUEST.
+- **RequestSubType**  
+  - Importanza: **Medium**  
+  - Descrizione: Sottotipo di richiesta. Presente nei fogli:WEBREQUEST.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **SourceId**  
+  - Importanza: **Medium**  
+  - Descrizione: Categoria WR. Presente nei fogli:WEBREQUEST.
+- **_inputFile**  
+  - Importanza: **Low**  
+  - Descrizione: File sorgente di importazione. Presente nei fogli:AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD. AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD.
+- **BrochureRequested**  
+  - Importanza: **Low**  
+  - Descrizione: Codice brochure. Presente nei fogli:WEBREQUEST.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Detail**  
+  - Importanza: **Low**  
+  - Descrizione: Riepilogo della richiesta. Presente nei fogli:WEBREQUEST.
+- **Note**  
+  - Importanza: **Low**  
+  - Descrizione: Nota testuali libere. Presente nei fogli:AGENCY, AGENT, BKGHDR.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **RequestType**  
+  - Importanza: **Low**  
+  - Descrizione: Categoria WR. Presente nei fogli:WEBREQUEST.
+- **RequestTypology**  
+  - Importanza: **Low**  
+  - Descrizione: Tipologia di richiesta. Presente nei fogli:WEBREQUEST.
+- **SuiteCategory**  
+  - Importanza: **Low**  
+  - Descrizione: Tipologia di camera/suite richiesta. Presente nei fogli:WEBREQUEST.
+- **WorkingWithAgent**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:WEBREQUEST.
+- **WRCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice WR. Presente nei fogli:WEBREQUEST.
+
+### WEBQUOTE
+
+- **BkgCod**  
+  - Importanza: **High**  
+  - Descrizione: Codice della prenotazione. Presente nei fogli:BKGHDR, BKGROLE, REDEMPTIONFCC.
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **Phone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENCY, AGENT, HOUSEHOLD.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **Created**  
+  - Importanza: **Medium**  
+  - Descrizione: Data di creazione del record. Presente nei fogli:WEBQUOTE.
+- **CurrencyCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Valuta usata nella prenotazione. Presente nei fogli:REDEMPTIONFCC, WEBQUOTE.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **_id**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo record. Presente nei fogli:AGNCSNNA, WEBQUOTE.
+- **_inputFile**  
+  - Importanza: **Low**  
+  - Descrizione: File sorgente di importazione. Presente nei fogli:AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD. AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD.
+- **Att01**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 01. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att02**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 02. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att03**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 03. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att04**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 04. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att05**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 05. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att06**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 06. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att07**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 07. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att08**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 08. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att09**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 09. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att10**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 10. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att11**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 11. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att12**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 12. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att13**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 13. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att14**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 14. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Att15**  
+  - Importanza: **Low**  
+  - Descrizione: Attributo 15. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **CreatedBy**  
+  - Importanza: **Low**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:WEBQUOTE.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MarketCod**  
+  - Importanza: **Low**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:WEBQUOTE.
+- **NameFirst**  
+  - Importanza: **Low**  
+  - Descrizione: Nome. Presente nei fogli:AGENT, INDIVIDUAL, WEBQUOTE.
+- **NameLast**  
+  - Importanza: **Low**  
+  - Descrizione: Cognome. Presente nei fogli:AGENT, INDIVIDUAL, WEBQUOTE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **NumPax**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di passeggeri. Presente nei fogli:WEBQUOTE.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **RequestID**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo della richiesta. Presente nei fogli:WEBQUOTE.
+- **SpecialRequest**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta speciale. Presente nei fogli:WEBQUOTE.
+- **StgBkgFromWebSiteID**  
+  - Importanza: **Low**  
+  - Descrizione: ID del sito web di origine della prenotazione. Presente nei fogli:WEBQUOTE. WEBQUOTE.
+- **Title**  
+  - Importanza: **Low**  
+  - Descrizione: Titolo. Presente nei fogli:WEBQUOTE.
+
+### BKGROLE
+
+- **BkgCod**  
+  - Importanza: **High**  
+  - Descrizione: Codice della prenotazione. Presente nei fogli:BKGHDR, BKGROLE, REDEMPTIONFCC.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **BkgCabinCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice cabina. Presente nei fogli:BKGROLE.
+- **BkgPaxCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice passeggero della prenotazione. Presente nei fogli:BKGROLE, REDEMPTIONFCC, REVENUE.
+- **BkgStatus**  
+  - Importanza: **Medium**  
+  - Descrizione: Stato della prenotazione. Presente nei fogli:BKGHDR, BKGROLE.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **StatusPax**  
+  - Importanza: **Low**  
+  - Descrizione: Stato del passeggero. Presente nei fogli:BKGROLE.
+
+### CABIN_COD
+
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **catg**  
+  - Importanza: **Low**  
+  - Descrizione: Cabin category. Presente nei fogli:CABIN_COD.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **MC**  
+  - Importanza: **Low**  
+  - Descrizione: Cabin main classification. Presente nei fogli:CABIN_COD.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### INDIVIDUALMERGED
+
+- **LoadingDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice change data. Presente nei fogli:INDIVIDUALMERGED.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Individual_Id**  
+  - Importanza: **Low**  
+  - Descrizione: ID dell'individuo. Presente nei fogli:BOOKINGSWRFULL, INDIVIDUALMERGED.
+- **Individual_Id_Merged**  
+  - Importanza: **Low**  
+  - Descrizione: ID del nuovo individuo. Presente nei fogli:INDIVIDUALMERGED.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### PORT
+
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **City**  
+  - Importanza: **Low**  
+  - Descrizione: Città dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **CityCity**  
+  - Importanza: **Low**  
+  - Descrizione: Formatted City. Presente nei fogli:PORT.
+- **CityCod**  
+  - Importanza: **Low**  
+  - Descrizione: City codice. Presente nei fogli:PORT.
+- **CityID**  
+  - Importanza: **Low**  
+  - Descrizione: ID della città. Presente nei fogli:PORT.
+- **Country**  
+  - Importanza: **Low**  
+  - Descrizione: Nazione per esteso dell'agente. Presente nei fogli:AGENT, PORT.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Latitude**  
+  - Importanza: **Low**  
+  - Descrizione: Latitude degrees. Presente nei fogli:PORT.
+- **Longitude**  
+  - Importanza: **Low**  
+  - Descrizione: Longitude degrees. Presente nei fogli:PORT.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **PortWingsCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice Wings del porto. Presente nei fogli:PORT.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### SHIP
+
+- **Ship**  
+  - Importanza: **High**  
+  - Descrizione: Nome o identificativo della nave. Presente nei fogli:BKGHDR, REVENUE, SHIP.
+- **ValidFrom**  
+  - Importanza: **High**  
+  - Descrizione: Data di inizio validità. Presente nei fogli:SHIP.
+- **ValidTo**  
+  - Importanza: **High**  
+  - Descrizione: Data di fine validità. Presente nei fogli:SHIP.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ShipCategoryCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Identificativo della nave classification. Presente nei fogli:SHIP.
+- **ShipMasterConversion**  
+  - Importanza: **Medium**  
+  - Descrizione: Identificativo della nave codice merged. Presente nei fogli:SHIP.
+- **ShipResCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Identificativo della nave codice. Presente nei fogli:SHIP.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### TOUCH
+
+- **ConnectMessageID**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:TOUCH.
+- **CreationDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di creazione del record. Presente nei fogli:BKGHDR, TOUCH.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **CallDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Real call data. Presente nei fogli:TOUCH.
+- **DWHLastUpdate**  
+  - Importanza: **Medium**  
+  - Descrizione: Dwh lastupdate. Presente nei fogli:TOUCH. TOUCH.
+- **FollowUpDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Follow up data. Presente nei fogli:TOUCH.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **ScheduleDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data the call initially was schedulated. Presente nei fogli:TOUCH.
+- **AssignedTo**  
+  - Importanza: **Low**  
+  - Descrizione: Employee the touch is assigned to. Presente nei fogli:TOUCH.
+- **CallOutcome**  
+  - Importanza: **Low**  
+  - Descrizione: Touch outcome. Presente nei fogli:TOUCH.
+- **CallStatus**  
+  - Importanza: **Low**  
+  - Descrizione: Stato della chiamata. Presente nei fogli:TOUCH.
+- **CallType**  
+  - Importanza: **Low**  
+  - Descrizione: Call classification. Presente nei fogli:TOUCH.
+- **Counter**  
+  - Importanza: **Low**  
+  - Descrizione: Contatore. Presente nei fogli:TOUCH.
+- **CreationUser**  
+  - Importanza: **Low**  
+  - Descrizione: User who creato this touch. Presente nei fogli:TOUCH.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **FirstParentId**  
+  - Importanza: **Low**  
+  - Descrizione: ID del primo touch. Presente nei fogli:TOUCH.
+- **Id**  
+  - Importanza: **Low**  
+  - Descrizione: ID del record. Presente nei fogli:TOUCH.
+- **LastParentId**  
+  - Importanza: **Low**  
+  - Descrizione: ID dell’ultimo touch. Presente nei fogli:TOUCH.
+- **LinkGroup**  
+  - Importanza: **Low**  
+  - Descrizione: Entity codice the touch is linked to. Presente nei fogli:TOUCH.
+- **LinkType**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di collegamento. Presente nei fogli:TOUCH.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### REDEMPTIONFCC
+
+- **BkgCod**  
+  - Importanza: **High**  
+  - Descrizione: Codice della prenotazione. Presente nei fogli:BKGHDR, BKGROLE, REDEMPTIONFCC.
+- **SourceBkgCod**  
+  - Importanza: **High**  
+  - Descrizione: Previous codice della prenotazione. Presente nei fogli:REDEMPTIONFCC.
+- **SourceID**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo della fonte. Presente nei fogli:REDEMPTIONFCC.
+- **BkgPaxCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice passeggero della prenotazione. Presente nei fogli:BKGROLE, REDEMPTIONFCC, REVENUE.
+- **CurrencyCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Valuta usata nella prenotazione. Presente nei fogli:REDEMPTIONFCC, WEBQUOTE.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Amount**  
+  - Importanza: **Low**  
+  - Descrizione: Coupon importo. Presente nei fogli:REDEMPTIONFCC.
+- **CertificateID**  
+  - Importanza: **Low**  
+  - Descrizione: ID del coupon. Presente nei fogli:REDEMPTIONFCC.
+- **CertificateTypeCod**  
+  - Importanza: **Low**  
+  - Descrizione: Tipologia del coupon. Presente nei fogli:REDEMPTIONFCC.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### BOOKINGSWRFULL
+
+- **BookingCreationDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di creazione del record. Presente nei fogli:BOOKINGSWRFULL.
+- **BookingStatus**  
+  - Importanza: **High**  
+  - Descrizione: Stato della prenotazione. Presente nei fogli:BOOKINGSWRFULL, REVENUE.
+- **BookingValue**  
+  - Importanza: **High**  
+  - Descrizione: Prenotazione value. Presente nei fogli:BOOKINGSWRFULL.
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **OriginalID**  
+  - Importanza: **High**  
+  - Descrizione: ID originale. Presente nei fogli:BOOKINGSWRFULL.
+- **Saildate**  
+  - Importanza: **High**  
+  - Descrizione: Data di partenza della crociera. Presente nei fogli:BOOKINGSWRFULL, REVENUE.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **BkgId**  
+  - Importanza: **Medium**  
+  - Descrizione: Identificativo della prenotazione. Presente nei fogli:BOOKINGSWRFULL.
+- **Request_Source**  
+  - Importanza: **Medium**  
+  - Descrizione: Origine della richiesta. Presente nei fogli:BOOKINGSWRFULL.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **WebRequestDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data della richiesta web. Presente nei fogli:BOOKINGSWRFULL.
+- **_inputFile**  
+  - Importanza: **Low**  
+  - Descrizione: File sorgente di importazione. Presente nei fogli:AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD. AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **GrossCruiseValue**  
+  - Importanza: **Low**  
+  - Descrizione: Grosscruisevalue. Presente nei fogli:BOOKINGSWRFULL. BOOKINGSWRFULL.
+- **Individual_Id**  
+  - Importanza: **Low**  
+  - Descrizione: ID dell'individuo. Presente nei fogli:BOOKINGSWRFULL, INDIVIDUALMERGED.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Unnamed: 6**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 6. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+- **Unnamed: 7**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 7. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+- **Unnamed: 8**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 8. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+
+### NATIONACCOUNT
+
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **Market**  
+  - Importanza: **Medium**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:BKGHDR, CAMPAIGNMETA, HOUSEHOLD.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **NACod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice del National Account. Presente nei fogli:NATIONACCOUNT.
+- **NAName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del National Account. Presente nei fogli:AGENCY, CNS, NATIONACCOUNT.
+- **NAType**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo del National Account. Presente nei fogli:NATIONACCOUNT.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Status**  
+  - Importanza: **Low**  
+  - Descrizione: Stato del National Account. Presente nei fogli:NATIONACCOUNT.
+- **Unnamed: 6**  
+  - Importanza: **Low**  
+  - Descrizione: Colonna senza nome 6. Presente nei fogli:AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS. AGENTUNSUBS, BOOKINGSWRFULL, INDIVIDUALUNSUBS.
+
+### VOYAGE
+
+- **shipcod**  
+  - Importanza: **High**  
+  - Descrizione: The identificativo della nave category/nome for any identificativo del viaggio (voyage). Presente nei fogli:VOYAGE.
+- **AccountingVoyage**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice for attaching tables. Presente nei fogli:VOYAGE.
+- **AreaSubCategory**  
+  - Importanza: **Medium**  
+  - Descrizione: Sottocategoria dell'area. Presente nei fogli:VOYAGE.
+- **destination**  
+  - Importanza: **Medium**  
+  - Descrizione: Specificazione dell'area geografica o destinazione. Presente nei fogli:VOYAGE.
+- **Embark**  
+  - Importanza: **Medium**  
+  - Descrizione: Porto di imbarco relativo al viaggio. Presente nei fogli:BKGHDR, VOYAGE.
+- **EmbarkPortCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice del porto di imbarco. Presente nei fogli:VOYAGE.
+- **RevenueArea**  
+  - Importanza: **Medium**  
+  - Descrizione: Ricavo associato al campo. Presente nei fogli:VOYAGE.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **saildate**  
+  - Importanza: **Medium**  
+  - Descrizione: Departure data. Presente nei fogli:VOYAGE.
+- **saildateto**  
+  - Importanza: **Medium**  
+  - Descrizione: Return data. Presente nei fogli:VOYAGE.
+- **voycod**  
+  - Importanza: **Medium**  
+  - Descrizione: Unique codice for identifying voyages. Presente nei fogli:VOYAGE.
+- **AvailableBerthDays**  
+  - Importanza: **Low**  
+  - Descrizione: Capacity. Presente nei fogli:VOYAGE.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **debark**  
+  - Importanza: **Low**  
+  - Descrizione: Sbarco. Presente nei fogli:VOYAGE.
+- **DebarkPortCod**  
+  - Importanza: **Low**  
+  - Descrizione: Debarkportcod. Presente nei fogli:VOYAGE.
+- **Itinerary**  
+  - Importanza: **Low**  
+  - Descrizione: Itinerario. Presente nei fogli:VOYAGE.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **TopArea**  
+  - Importanza: **Low**  
+  - Descrizione: Toparea. Presente nei fogli:VOYAGE. VOYAGE.
+- **voydays**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di giorni del viaggio. Presente nei fogli:VOYAGE.
+
+### CNS
+
+- **LastBKConfirmationDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di conferma della prenotazione. Presente nei fogli:CNS.
+- **ActivityFirst**  
+  - Importanza: **Medium**  
+  - Descrizione: Data della prima atticità. Presente nei fogli:AGENCY, CNS.
+- **ActivityLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Data dell'ultima attività. Presente nei fogli:AGENCY, CNS.
+- **BkGBkCY**  
+  - Importanza: **Medium**  
+  - Descrizione: How many prenotazione in the current year. Presente nei fogli:CNS.
+- **BkGBkPY**  
+  - Importanza: **Medium**  
+  - Descrizione: How many prenotazione in the previous year. Presente nei fogli:CNS.
+- **BkgBKTotal**  
+  - Importanza: **Medium**  
+  - Descrizione: Importo totale della prenotazione. Presente nei fogli:CNS.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **AgenciesClosed**  
+  - Importanza: **Low**  
+  - Descrizione: Counting how many cloed. Presente nei fogli:CNS.
+- **AgenciesOpen**  
+  - Importanza: **Low**  
+  - Descrizione: Counting how many open. Presente nei fogli:CNS.
+- **AgenciesTotal**  
+  - Importanza: **Low**  
+  - Descrizione: Counting how many in totale. Presente nei fogli:CNS.
+- **Cns**  
+  - Importanza: **Low**  
+  - Descrizione: Consortium nome/description. Presente nei fogli:CNS.
+- **CnsCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice del consorzio. Presente nei fogli:AGENCY, CNS.
+- **CnsID**  
+  - Importanza: **Low**  
+  - Descrizione: ID univoco della tabella. Presente nei fogli:CNS.
+- **CnsMarket**  
+  - Importanza: **Low**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:CNS.
+- **CnsStatus**  
+  - Importanza: **Low**  
+  - Descrizione: Stato CNS. Presente nei fogli:CNS.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Nacod**  
+  - Importanza: **Low**  
+  - Descrizione: National Account codice. Presente nei fogli:AGENCY, CNS.
+- **NAName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del National Account. Presente nei fogli:AGENCY, CNS, NATIONACCOUNT.
+- **Notes**  
+  - Importanza: **Low**  
+  - Descrizione: Note libere. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Questions**  
+  - Importanza: **Low**  
+  - Descrizione: Domande o quesiti aperti. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN. AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+
+### BKGHDR
+
+- **BkgCod**  
+  - Importanza: **High**  
+  - Descrizione: Codice della prenotazione. Presente nei fogli:BKGHDR, BKGROLE, REDEMPTIONFCC.
+- **BookingFirstInsertDate**  
+  - Importanza: **High**  
+  - Descrizione: Prima data di inserimento della prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **CancelDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di cancellazione della prenotazione. Presente nei fogli:BKGHDR.
+- **Channel**  
+  - Importanza: **High**  
+  - Descrizione: Canale di prenotazione o comunicazione. Presente nei fogli:AGENTSEND, BKGHDR, BOOKINGSWRFULL.
+- **Confirmationdate**  
+  - Importanza: **High**  
+  - Descrizione: Data di conferma. Presente nei fogli:BKGHDR.
+- **CreationDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di creazione del record. Presente nei fogli:BKGHDR, TOUCH.
+- **EarlyBookingBonus**  
+  - Importanza: **High**  
+  - Descrizione: Flag che indica un bonus per prenotazioni anticipate. Presente nei fogli:BKGHDR, REVENUE.
+- **FareClass**  
+  - Importanza: **High**  
+  - Descrizione: Classe tariffaria della prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **IndividualidAgent**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo dell'agente individuale. Presente nei fogli:BKGHDR.
+- **SailDate**  
+  - Importanza: **High**  
+  - Descrizione: Data di partenza della crociera. Presente nei fogli:BKGHDR.
+- **Ship**  
+  - Importanza: **High**  
+  - Descrizione: Nome o identificativo della nave. Presente nei fogli:BKGHDR, REVENUE, SHIP.
+- **Voyage**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo del viaggio. Presente nei fogli:BKGHDR, REVENUE, WEBREQUEST.
+- **VoyageCount**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo del viaggio. Presente nei fogli:BKGHDR.
+- **VoyageDateFromCod**  
+  - Importanza: **High**  
+  - Descrizione: Data di partenza della crociera. Presente nei fogli:BKGHDR.
+- **Area**  
+  - Importanza: **Medium**  
+  - Descrizione: Area di prenotazione. Presente nei fogli:BKGHDR, CAMPAIGNMETA, REVENUE.
+- **BkFlag**  
+  - Importanza: **Medium**  
+  - Descrizione: Flag. Presente nei fogli:BKGHDR.
+- **BkgStatus**  
+  - Importanza: **Medium**  
+  - Descrizione: Stato della prenotazione. Presente nei fogli:BKGHDR, BKGROLE.
+- **CreationResAgentCod**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice dell'agente che ha creato la prenotazione. Presente nei fogli:BKGHDR.
+- **Days**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di giorni di navigazione per passeggero relativo alla prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **Embark**  
+  - Importanza: **Medium**  
+  - Descrizione: Porto di imbarco relativo al viaggio. Presente nei fogli:BKGHDR, VOYAGE.
+- **FirstCabin**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice cabina. Presente nei fogli:BKGHDR.
+- **Market**  
+  - Importanza: **Medium**  
+  - Descrizione: Mercato o segmento commerciale. Presente nei fogli:BKGHDR, CAMPAIGNMETA, HOUSEHOLD.
+- **OnBoardBkg**  
+  - Importanza: **Medium**  
+  - Descrizione: Flag. Presente nei fogli:BKGHDR.
+- **PaxCount**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di passeggeri. Presente nei fogli:BKGHDR.
+- **SegmentMaster**  
+  - Importanza: **Medium**  
+  - Descrizione: Tipo della prenotazione. Presente nei fogli:BKGHDR, REVENUE.
+- **AgencyCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice dell'agenzia. Presente nei fogli:AGENCY, BKGHDR, REVENUE.
+- **CabinCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice cabina. Presente nei fogli:BKGHDR, REVENUE.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Debark**  
+  - Importanza: **Low**  
+  - Descrizione: Porto di sbarco relativo al viaggio. Presente nei fogli:BKGHDR.
+- **Domande**  
+  - Importanza: **Low**  
+  - Descrizione: Domande. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **Note**  
+  - Importanza: **Low**  
+  - Descrizione: Nota testuali libere. Presente nei fogli:AGENCY, AGENT, BKGHDR.
+- **OnBoardConfirmedBkg**  
+  - Importanza: **Low**  
+  - Descrizione: Prenotazione confermata a bordo. Presente nei fogli:BKGHDR.
+- **Stato**  
+  - Importanza: **Low**  
+  - Descrizione: Stato. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+
+### INDIVIDUAL
+
+- **CCPTEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:INDIVIDUAL.
+- **CCPTPersonalizeEmail**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **CCPTPhone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:INDIVIDUAL.
+- **CCPTPhone2**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:INDIVIDUAL.
+- **DoNotEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, INDIVIDUAL.
+- **donotemailreasonid**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **DoNotMail**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:AGENT, INDIVIDUAL.
+- **donotmailreasonid**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **DoNotPhone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENT, INDIVIDUAL.
+- **donotphonereasonid**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **emailvalidity**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:INDIVIDUAL.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **LastDrcDate**  
+  - Importanza: **High**  
+  - Descrizione: Data dell'ultimo prenotazione diretto. Presente nei fogli:INDIVIDUAL.
+- **LastUpdateAction**  
+  - Importanza: **High**  
+  - Descrizione: Ultimo aggiornamento per preventivi/WR/prenotazione dell'individuo. Presente nei fogli:INDIVIDUAL.
+- **LastUpdateEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:INDIVIDUAL.
+- **OKtoEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:INDIVIDUAL.
+- **OKtoMail**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **PersonalizeEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:INDIVIDUAL.
+- **Phone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENCY, AGENT, HOUSEHOLD.
+- **phonevalidity**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:INDIVIDUAL.
+- **SharingEmailCounter**  
+  - Importanza: **High**  
+  - Descrizione: Sharingemailcounter. Presente nei fogli:INDIVIDUAL. INDIVIDUAL.
+- **WRsEmailUs**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:INDIVIDUAL.
+- **_lastModifiedTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Data/ora dell'ultima modifica. Presente nei fogli:HOUSEHOLD, INDIVIDUAL. HOUSEHOLD, INDIVIDUAL.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **BirthDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data di nascita dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **BkgsBK**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di prenotazioni andate a buon fine. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsBkToSail**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero prenotazioni andate a buon fine da viaggiare. Presente nei fogli:AGENT, INDIVIDUAL.
+- **DateInsert**  
+  - Importanza: **Medium**  
+  - Descrizione: Data inserimento. Presente nei fogli:INDIVIDUAL.
+- **DateLastModify**  
+  - Importanza: **Medium**  
+  - Descrizione: Data ultima modifica. Presente nei fogli:INDIVIDUAL.
+- **LastAgencyDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data dell'ultima prenotazione presso un'agenzia. Presente nei fogli:INDIVIDUAL.
+- **LastEmpBkgDrt**  
+  - Importanza: **Medium**  
+  - Descrizione: Identificativo del dipendente dell'ultima prenotazione diretta. Presente nei fogli:INDIVIDUAL.
+- **LastTouchDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultima data di contatto con call center. Presente nei fogli:INDIVIDUAL.
+- **LastUpdate**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultimo aggiornamento. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **mktcodlast**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice dell'area geografica all'ultimo prenotazione. Presente nei fogli:INDIVIDUAL.
+- **PortsSeen**  
+  - Importanza: **Medium**  
+  - Descrizione: Portsseen. Presente nei fogli:INDIVIDUAL. INDIVIDUAL.
+- **SailDateLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultima data di partenza. Presente nei fogli:AGENT, INDIVIDUAL.
+- **SailDateNext**  
+  - Importanza: **Medium**  
+  - Descrizione: Data della prossima partenza. Presente nei fogli:AGENT, INDIVIDUAL.
+- **WRGrandVoyages**  
+  - Importanza: **Medium**  
+  - Descrizione: Indicatore per il prodotto Grand Voyages. Presente nei fogli:INDIVIDUAL.
+- **WRsBKG**  
+  - Importanza: **Medium**  
+  - Descrizione: Indicatore per WR BKG. Presente nei fogli:INDIVIDUAL.
+- **_inputFile**  
+  - Importanza: **Low**  
+  - Descrizione: File sorgente di importazione. Presente nei fogli:AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD. AGNCSNNA, BOOKINGSWRFULL, HOUSEHOLD.
+- **Address**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo dell'indiviuo. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **AddressId**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'indirizzo. Presente nei fogli:AGENT, INDIVIDUAL.
+- **AddressValidity**  
+  - Importanza: **Low**  
+  - Descrizione: Validity dell'indirizzo. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Bkgs**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotazioni. Presente nei fogli:AGENT, INDIVIDUAL.
+- **BkgsCX**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotazioni cancellate. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsOF**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotaziono opzionate. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsOFToSail**  
+  - Importanza: **Low**  
+  - Descrizione: Numero prenotazioni opzionate da viaggiare. Presente nei fogli:AGENT, INDIVIDUAL.
+- **BkgsSailed**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotazioni già salpate. Presente nei fogli:INDIVIDUAL.
+- **CCPTExtension**  
+  - Importanza: **Low**  
+  - Descrizione: Ccpt extension. Presente nei fogli:INDIVIDUAL. INDIVIDUAL.
+- **CCPTFax**  
+  - Importanza: **Low**  
+  - Descrizione: Fax del centralinista. Presente nei fogli:INDIVIDUAL.
+- **CCPTName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del centralinista. Presente nei fogli:INDIVIDUAL.
+- **City**  
+  - Importanza: **Low**  
+  - Descrizione: Città dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **CountryCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice nazione. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **County**  
+  - Importanza: **Low**  
+  - Descrizione: Regione. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **degreesX**  
+  - Importanza: **Low**  
+  - Descrizione: Longitudine dell'indirizzo dell'individuo. Presente nei fogli:INDIVIDUAL.
+- **degreesY**  
+  - Importanza: **Low**  
+  - Descrizione: Latitudine dell'indirizzo dell'individuo. Presente nei fogli:INDIVIDUAL.
+- **Domande**  
+  - Importanza: **Low**  
+  - Descrizione: Domande. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **donotcall**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **donotcallreasonid**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **Gender**  
+  - Importanza: **Low**  
+  - Descrizione: Sesso dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **HHAddress**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHAddressID**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'indirizzo dell'household. Presente nei fogli:INDIVIDUAL.
+- **HHAddressValidity**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHCity**  
+  - Importanza: **Low**  
+  - Descrizione: Città dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHCountry**  
+  - Importanza: **Low**  
+  - Descrizione: Paese dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHCounty**  
+  - Importanza: **Low**  
+  - Descrizione: Regione dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHDegreeX**  
+  - Importanza: **Low**  
+  - Descrizione: Longitudine dell'indirizzo dell'household. Presente nei fogli:INDIVIDUAL.
+- **HHDegreeY**  
+  - Importanza: **Low**  
+  - Descrizione: Latitudine dell'indirizzo dell'household. Presente nei fogli:INDIVIDUAL.
+- **HHMktCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice dell'area geografica dell'household. Presente nei fogli:INDIVIDUAL.
+- **HHRegion**  
+  - Importanza: **Low**  
+  - Descrizione: Paese dell'household. Presente nei fogli:INDIVIDUAL.
+- **HHState**  
+  - Importanza: **Low**  
+  - Descrizione: Stato dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HHZip**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'household. Presente nei fogli:INDIVIDUAL.
+- **HHZip4**  
+  - Importanza: **Low**  
+  - Descrizione: CAP dell'household. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **HouseholdId**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'household. Presente nei fogli:AGENT, HOUSEHOLD, HOUSEHOLDSEND.
+- **IsAgent**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **Language**  
+  - Importanza: **Low**  
+  - Descrizione: Lingua. Presente nei fogli:AGENT, HOUSEHOLD, INDIVIDUAL.
+- **LastAgency**  
+  - Importanza: **Low**  
+  - Descrizione: Ultima agenzia in cui è stata fatta una prenotazione. Presente nei fogli:INDIVIDUAL.
+- **LastAgencyCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice ultima agenzia in cui è stata fatta una prenotazione. Presente nei fogli:INDIVIDUAL.
+- **LastDrcID**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo cliente pagatore dell'ultima prenotazione diretta. Presente nei fogli:INDIVIDUAL.
+- **MktCountry**  
+  - Importanza: **Low**  
+  - Descrizione: Mercato di riferimento dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Monetary_Segment**  
+  - Importanza: **Low**  
+  - Descrizione: Indice RF-Monetary. Presente nei fogli:INDIVIDUAL.
+- **NameFirst**  
+  - Importanza: **Low**  
+  - Descrizione: Nome. Presente nei fogli:AGENT, INDIVIDUAL, WEBQUOTE.
+- **NameLast**  
+  - Importanza: **Low**  
+  - Descrizione: Cognome. Presente nei fogli:AGENT, INDIVIDUAL, WEBQUOTE.
+- **NameMiddle**  
+  - Importanza: **Low**  
+  - Descrizione: Secondo nome. Presente nei fogli:AGENT, INDIVIDUAL.
+- **NationalityCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice nazione. Presente nei fogli:INDIVIDUAL.
+- **Note**  
+  - Importanza: **Low**  
+  - Descrizione: Nota testuali libere. Presente nei fogli:AGENCY, AGENT, BKGHDR.
+- **Occupation**  
+  - Importanza: **Low**  
+  - Descrizione: Occupazione. Presente nei fogli:INDIVIDUAL.
+- **OKtoSMS**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:INDIVIDUAL.
+- **ownerid**  
+  - Importanza: **Low**  
+  - Descrizione: Codice dipendente Silversea. Presente nei fogli:INDIVIDUAL.
+- **ownername**  
+  - Importanza: **Low**  
+  - Descrizione: Nome dipendente Silversea. Presente nei fogli:INDIVIDUAL.
+- **PrimaryIndividual**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENT, INDIVIDUAL.
+- **RegionCountry**  
+  - Importanza: **Low**  
+  - Descrizione: Nazione dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **RF_Segment**  
+  - Importanza: **Low**  
+  - Descrizione: Indice Recency-Frequency. Presente nei fogli:INDIVIDUAL.
+- **Salutation**  
+  - Importanza: **Low**  
+  - Descrizione: Prefisso/titolo del nome. Presente nei fogli:AGENT, INDIVIDUAL.
+- **SingleTravels**  
+  - Importanza: **Low**  
+  - Descrizione: Numero viaggi singoli. Presente nei fogli:INDIVIDUAL.
+- **State**  
+  - Importanza: **Low**  
+  - Descrizione: Paese. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Stato**  
+  - Importanza: **Low**  
+  - Descrizione: Stato. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **StatusIndividual**  
+  - Importanza: **Low**  
+  - Descrizione: Tipologia cliente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Suppress**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENT, INDIVIDUAL.
+- **SuppressionReason**  
+  - Importanza: **Low**  
+  - Descrizione: Motivo della rimozione dalla base clienti. Presente nei fogli:AGENT, INDIVIDUAL.
+- **ValidRecord**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:HOUSEHOLD, INDIVIDUAL.
+- **VoyFirstYear**  
+  - Importanza: **Low**  
+  - Descrizione: Primo anno in cui si è viaggiato. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VoyLastYear**  
+  - Importanza: **Low**  
+  - Descrizione: Anno dell'ultimo viaggio. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Voys**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VoysAFIO**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysALAS**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysASNZ**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysCARI**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysCHTR**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysEANT**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysEARC**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysEURP**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysEXPD**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysFARE**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysGLPG**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysMEDT**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysNENG**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysNEUR**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysSOAM**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysSOPC**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysTRAN**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VoysWRLD**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi fatti del cliente per area geografica, calcolati da SSC. Presente nei fogli:INDIVIDUAL.
+- **VsCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice VS. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VSDays**  
+  - Importanza: **Low**  
+  - Descrizione: Punti fedeltà cumulati. Presente nei fogli:AGENT, INDIVIDUAL.
+- **WRAfricaIndian**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRAlaska**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRall**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per tutte le WR. Presente nei fogli:INDIVIDUAL.
+- **WRAmericaSouth**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRAntarctica**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Antarctica. Presente nei fogli:INDIVIDUAL.
+- **WRArctic**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Arctic. Presente nei fogli:INDIVIDUAL.
+- **WRAustralasia**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Australasia. Presente nei fogli:INDIVIDUAL.
+- **WRCanada**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRCaribbean**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRClassicCruise**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Classic Cruise. Presente nei fogli:INDIVIDUAL.
+- **WRExpeditions**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Expeditions. Presente nei fogli:INDIVIDUAL.
+- **WRFarEast**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRGalapagos**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Galapagos. Presente nei fogli:INDIVIDUAL.
+- **WRLast**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Last. Presente nei fogli:INDIVIDUAL.
+- **WRMed**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRMicroMelaPoly**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WR Micro Mela Poly. Presente nei fogli:INDIVIDUAL.
+- **WRNEurope**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRs**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WRs. Presente nei fogli:INDIVIDUAL.
+- **WRsBRO**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WRs BRO. Presente nei fogli:INDIVIDUAL.
+- **WRsCall**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WRs Call. Presente nei fogli:INDIVIDUAL.
+- **WRsQuote**  
+  - Importanza: **Low**  
+  - Descrizione: Indicatore per WRs Quote. Presente nei fogli:INDIVIDUAL.
+- **WRTrans**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **WRWorld**  
+  - Importanza: **Low**  
+  - Descrizione: Richiesta web per area geografica di interesse. Presente nei fogli:INDIVIDUAL.
+- **Zip**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Zip4**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'agenzia. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+
+### AGENCY
+
+- **Phone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENCY, AGENT, HOUSEHOLD.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **ActivityFirst**  
+  - Importanza: **Medium**  
+  - Descrizione: Data della prima atticità. Presente nei fogli:AGENCY, CNS.
+- **ActivityLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Data dell'ultima attività. Presente nei fogli:AGENCY, CNS.
+- **BkgsBK**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di prenotazioni andate a buon fine. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsBKCY**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero prenotazioni andate a buon fine nell'anno corrente. Presente nei fogli:AGENCY.
+- **LastOFtoBKDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data dell'ultima prenotazione opzionata. Presente nei fogli:AGENCY.
+- **NumBKinFutureSails**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di prenotazione confermati nelle prossime crociere. Presente nei fogli:AGENCY.
+- **NumCXinLastWeeks**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di prenotazione cancellati nell'ultima settimana. Presente nei fogli:AGENCY.
+- **TotBkgAmn**  
+  - Importanza: **Medium**  
+  - Descrizione: Importo totale della prenotazione. Presente nei fogli:AGENCY.
+- **TotFITBkgAmnCY**  
+  - Importanza: **Medium**  
+  - Descrizione: Importo totale della prenotazione. Presente nei fogli:AGENCY.
+- **TotFITBkgAmnPY**  
+  - Importanza: **Medium**  
+  - Descrizione: Importo totale della prenotazione. Presente nei fogli:AGENCY.
+- **Address**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo dell'indiviuo. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Address1**  
+  - Importanza: **Low**  
+  - Descrizione: Ulteriore specifica dell'indirizzo. Presente nei fogli:AGENCY.
+- **Agency**  
+  - Importanza: **Low**  
+  - Descrizione: Agenzia. Presente nei fogli:AGENCY.
+- **AgencyCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice dell'agenzia. Presente nei fogli:AGENCY, BKGHDR, REVENUE.
+- **AgencyId**  
+  - Importanza: **Low**  
+  - Descrizione: Identificativo univoco dell'agenzia. Presente nei fogli:AGENCY.
+- **AgnClosedFlg**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENCY.
+- **BkgsBKPY**  
+  - Importanza: **Low**  
+  - Descrizione: Numero prenotazioni opzionate nell'anno precedente. Presente nei fogli:AGENCY.
+- **BkgsCX**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotazioni cancellate. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsOF**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotaziono opzionate. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **CharterFlg**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENCY.
+- **City**  
+  - Importanza: **Low**  
+  - Descrizione: Città dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Cluster**  
+  - Importanza: **Low**  
+  - Descrizione: Raggruppamento sull'attività dell'agenzia (cioè sulla performance). Presente nei fogli:AGENCY.
+- **CnsAgenciesOpen**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di agenzie del consorzio. Presente nei fogli:AGENCY.
+- **CnsCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice del consorzio. Presente nei fogli:AGENCY, CNS.
+- **CnsName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del consorzio. Presente nei fogli:AGENCY.
+- **CountryCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice nazione. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **County**  
+  - Importanza: **Low**  
+  - Descrizione: Regione. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **CrcCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice valuta dell'agenzia. Presente nei fogli:AGENCY.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Domande**  
+  - Importanza: **Low**  
+  - Descrizione: Domande. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **MainContact**  
+  - Importanza: **Low**  
+  - Descrizione: Contatto principale. Presente nei fogli:AGENCY.
+- **MktCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice di mercato. Presente nei fogli:AGENCY.
+- **Nacod**  
+  - Importanza: **Low**  
+  - Descrizione: National Account codice. Presente nei fogli:AGENCY, CNS.
+- **NAName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del National Account. Presente nei fogli:AGENCY, CNS, NATIONACCOUNT.
+- **Note**  
+  - Importanza: **Low**  
+  - Descrizione: Nota testuali libere. Presente nei fogli:AGENCY, AGENT, BKGHDR.
+- **PaxsFITCY**  
+  - Importanza: **Low**  
+  - Descrizione: Quanti passeggeri (passeggero) nell'anno corrente. Presente nei fogli:AGENCY.
+- **PaxsFITPY**  
+  - Importanza: **Low**  
+  - Descrizione: Quanti passeggeri (passeggero) nell'anno precedente. Presente nei fogli:AGENCY.
+- **RsdName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del proprio direttore di vendite. Presente nei fogli:AGENCY, AGENT.
+- **SalesRepCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice del responsabile vendite. Presente nei fogli:AGENCY.
+- **SentToWings**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENCY.
+- **StateCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice stato. Presente nei fogli:AGENCY.
+- **Stato**  
+  - Importanza: **Low**  
+  - Descrizione: Stato. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **StatusAgencyDesc**  
+  - Importanza: **Low**  
+  - Descrizione: Stato/importanza dell'agenzia. Presente nei fogli:AGENCY.
+- **VAT**  
+  - Importanza: **Low**  
+  - Descrizione: IVA. Presente nei fogli:AGENCY.
+- **Zip**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Zip4**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'agenzia. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+
+### AGENT
+
+- **DoNotEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, INDIVIDUAL.
+- **DoNotEmailReason**  
+  - Importanza: **High**  
+  - Descrizione: Ragione di non contattabilità. Presente nei fogli:AGENT.
+- **DoNotMail**  
+  - Importanza: **High**  
+  - Descrizione: Flag. Presente nei fogli:AGENT, INDIVIDUAL.
+- **DoNotMailReason**  
+  - Importanza: **High**  
+  - Descrizione: Ragione di non contattabilità. Presente nei fogli:AGENT.
+- **DoNotPhone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENT, INDIVIDUAL.
+- **DoNotPhoneReason**  
+  - Importanza: **High**  
+  - Descrizione: Ragione di non contattabilità. Presente nei fogli:AGENT.
+- **Email**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT, AGENTBOUNCE, AGENTCLICK.
+- **EmailValidity**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT.
+- **IndividualId**  
+  - Importanza: **High**  
+  - Descrizione: Codice identificativo dell'individuo. Presente nei fogli:AGENT, BKGROLE, INDIVIDUAL.
+- **Phone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENCY, AGENT, HOUSEHOLD.
+- **PhoneExtension**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENT.
+- **PhoneValidity**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENT.
+- **RsdEmail**  
+  - Importanza: **High**  
+  - Descrizione: Indirizzo email del contatto. Presente nei fogli:AGENT.
+- **RsdPhone**  
+  - Importanza: **High**  
+  - Descrizione: Numero di telefono del contatto. Presente nei fogli:AGENT.
+- **_loadingTs**  
+  - Importanza: **Medium**  
+  - Descrizione: Timestamp di caricamento. Presente nei fogli:AGENCY, AGENT, AGNCSNNA.
+- **BirthDate**  
+  - Importanza: **Medium**  
+  - Descrizione: Data di nascita dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **BkgsBK**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero di prenotazioni andate a buon fine. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsBkToSail**  
+  - Importanza: **Medium**  
+  - Descrizione: Numero prenotazioni andate a buon fine da viaggiare. Presente nei fogli:AGENT, INDIVIDUAL.
+- **MktCodLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Codice mercato dell'ultimo prenotazione fatto dall'agente. Presente nei fogli:AGENT.
+- **SailDateLast**  
+  - Importanza: **Medium**  
+  - Descrizione: Ultima data di partenza. Presente nei fogli:AGENT, INDIVIDUAL.
+- **SailDateNext**  
+  - Importanza: **Medium**  
+  - Descrizione: Data della prossima partenza. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Address**  
+  - Importanza: **Low**  
+  - Descrizione: Indirizzo dell'indiviuo. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **AddressId**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'indirizzo. Presente nei fogli:AGENT, INDIVIDUAL.
+- **AddressValidity**  
+  - Importanza: **Low**  
+  - Descrizione: Validity dell'indirizzo. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Bkgs**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotazioni. Presente nei fogli:AGENT, INDIVIDUAL.
+- **BkgsCX**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotazioni cancellate. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsOF**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di prenotaziono opzionate. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **BkgsOFToSail**  
+  - Importanza: **Low**  
+  - Descrizione: Numero prenotazioni opzionate da viaggiare. Presente nei fogli:AGENT, INDIVIDUAL.
+- **City**  
+  - Importanza: **Low**  
+  - Descrizione: Città dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Country**  
+  - Importanza: **Low**  
+  - Descrizione: Nazione per esteso dell'agente. Presente nei fogli:AGENT, PORT.
+- **CountryAllOK**  
+  - Importanza: **Low**  
+  - Descrizione: Country corretto. Presente nei fogli:AGENT.
+- **CountryCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice nazione. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **County**  
+  - Importanza: **Low**  
+  - Descrizione: Regione. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **DegreesX**  
+  - Importanza: **Low**  
+  - Descrizione: Coordinata geografica x dell'indirizzo. Presente nei fogli:AGENT.
+- **DegreesY**  
+  - Importanza: **Low**  
+  - Descrizione: Coordinata geografica y dell'indirizzo. Presente nei fogli:AGENT.
+- **Domande**  
+  - Importanza: **Low**  
+  - Descrizione: Domande. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **DoNotContact**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENT.
+- **DoNotContactReason**  
+  - Importanza: **Low**  
+  - Descrizione: Ragione di non contattabilità. Presente nei fogli:AGENT.
+- **Gender**  
+  - Importanza: **Low**  
+  - Descrizione: Sesso dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **HouseholdId**  
+  - Importanza: **Low**  
+  - Descrizione: Codice identificativo dell'household. Presente nei fogli:AGENT, HOUSEHOLD, HOUSEHOLDSEND.
+- **Language**  
+  - Importanza: **Low**  
+  - Descrizione: Lingua. Presente nei fogli:AGENT, HOUSEHOLD, INDIVIDUAL.
+- **MktCountry**  
+  - Importanza: **Low**  
+  - Descrizione: Mercato di riferimento dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **NameFirst**  
+  - Importanza: **Low**  
+  - Descrizione: Nome. Presente nei fogli:AGENT, INDIVIDUAL, WEBQUOTE.
+- **NameLast**  
+  - Importanza: **Low**  
+  - Descrizione: Cognome. Presente nei fogli:AGENT, INDIVIDUAL, WEBQUOTE.
+- **NameMiddle**  
+  - Importanza: **Low**  
+  - Descrizione: Secondo nome. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Note**  
+  - Importanza: **Low**  
+  - Descrizione: Nota testuali libere. Presente nei fogli:AGENCY, AGENT, BKGHDR.
+- **PrimaryIndividual**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENT, INDIVIDUAL.
+- **RegionCountry**  
+  - Importanza: **Low**  
+  - Descrizione: Nazione dell'agente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **RsdName**  
+  - Importanza: **Low**  
+  - Descrizione: Nome del proprio direttore di vendite. Presente nei fogli:AGENCY, AGENT.
+- **Salutation**  
+  - Importanza: **Low**  
+  - Descrizione: Prefisso/titolo del nome. Presente nei fogli:AGENT, INDIVIDUAL.
+- **State**  
+  - Importanza: **Low**  
+  - Descrizione: Paese. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Stato**  
+  - Importanza: **Low**  
+  - Descrizione: Stato. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **StatusIndividual**  
+  - Importanza: **Low**  
+  - Descrizione: Tipologia cliente. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Suppress**  
+  - Importanza: **Low**  
+  - Descrizione: Flag. Presente nei fogli:AGENT, INDIVIDUAL.
+- **SuppressionReason**  
+  - Importanza: **Low**  
+  - Descrizione: Motivo della rimozione dalla base clienti. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VoyFirstYear**  
+  - Importanza: **Low**  
+  - Descrizione: Primo anno in cui si è viaggiato. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VoyLastYear**  
+  - Importanza: **Low**  
+  - Descrizione: Anno dell'ultimo viaggio. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Voys**  
+  - Importanza: **Low**  
+  - Descrizione: Numero di viaggi. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VsCod**  
+  - Importanza: **Low**  
+  - Descrizione: Codice VS. Presente nei fogli:AGENT, INDIVIDUAL.
+- **VSDays**  
+  - Importanza: **Low**  
+  - Descrizione: Punti fedeltà cumulati. Presente nei fogli:AGENT, INDIVIDUAL.
+- **Zip**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'agente. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+- **Zip4**  
+  - Importanza: **Low**  
+  - Descrizione: Codice postale dell'agenzia. Presente nei fogli:AGENCY, AGENT, INDIVIDUAL.
+
+### HIERARCHY
+
+- **IndividualIdChild**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo dell'agente. Presente nei fogli:HIERARCHY.
+- **IndividualIdParent**  
+  - Importanza: **High**  
+  - Descrizione: Identificativo dell'agenzia. Presente nei fogli:HIERARCHY.
+- **ValidityDateFrom**  
+  - Importanza: **High**  
+  - Descrizione: Data di validità inizio. Presente nei fogli:HIERARCHY, HOUSEHOLD.
+- **Role**  
+  - Importanza: **Medium**  
+  - Descrizione: Ruolo associato al record. Presente nei fogli:AGENTBOUNCE, AGENTCLICK, AGENTOPEN.
+- **Data type**  
+  - Importanza: **Low**  
+  - Descrizione: Tipo di dato. Presente nei fogli:AGENCY, AGENT, AGENTBOUNCE. AGENCY, AGENT, AGENTBOUNCE.
+- **Domande**  
+  - Importanza: **Low**  
+  - Descrizione: Domande. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
+- **Note**  
+  - Importanza: **Low**  
+  - Descrizione: Nota testuali libere. Presente nei fogli:AGENCY, AGENT, BKGHDR.
+- **Stato**  
+  - Importanza: **Low**  
+  - Descrizione: Stato. Presente nei fogli:AGENCY, AGENT, BKGHDR. AGENCY, AGENT, BKGHDR.
